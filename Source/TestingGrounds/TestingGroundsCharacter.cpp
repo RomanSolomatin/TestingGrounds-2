@@ -7,6 +7,7 @@
 #include "GameFramework/InputSettings.h"
 #include "Kismet/HeadMountedDisplayFunctionLibrary.h"
 #include "MotionControllerComponent.h"
+#include "Perception/AISense_Hearing.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -159,6 +160,9 @@ void ATestingGroundsCharacter::OnFire()
 				// spawn the projectile at the muzzle
 				World->SpawnActor<ATestingGroundsProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 			}
+
+			// report noise event
+			UAISense_Hearing::ReportNoiseEvent(this, GetActorLocation(), 1, this);
 		}
 	}
 
