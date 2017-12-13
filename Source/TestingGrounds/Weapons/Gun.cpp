@@ -62,7 +62,7 @@ void AGun::OnFire()
 			World->SpawnActor<ATestingGroundsProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 
 			// report noise event
-			UAISense_Hearing::ReportNoiseEvent(this, GetActorLocation(), 1, this);
+			// UAISense_Hearing::ReportNoiseEvent(this, GetActorLocation(), 1, this);
 		}
 	}
 
